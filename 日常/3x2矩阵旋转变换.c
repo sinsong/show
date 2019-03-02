@@ -82,7 +82,7 @@ int main()
 	// 下标 -> 答案 的映射 0 表示不可能
 	int *hack = (int *)malloc(sizeof(int) * 999999);
 
-	if (hack == nullptr)
+	if (hack == NULL)
 	{
 		printf("malloc failed");
 		exit(0);
@@ -119,14 +119,14 @@ int main()
 	int num;
 	scanf("%d", &num);
 	int *inputs = (int*)malloc(sizeof(int) * num);
-	for (unsigned i = 0; i < num; ++i)
+	for (int i = 0; i < num; ++i)
 	{
 		int input[6] = { 0 };
 		scanf("%d%d%d%d%d%d", &input[0], &input[1], &input[2], &input[3], &input[4], &input[5]);
 		inputs[i] = keyi(input);
 	}
 
-	for (unsigned i = 0; i < num; ++i)
+	for (int i = 0; i < num; ++i)
 	{
 		printf("%d\n", hack[inputs[i]]);
 	}
