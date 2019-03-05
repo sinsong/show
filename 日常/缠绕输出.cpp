@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <iostream>
 #include <algorithm> //max, min
 #include <stdio.h>
