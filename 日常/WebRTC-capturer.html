@@ -1,0 +1,38 @@
+<html>
+
+<body>
+
+<video id="my" width="800" height="600"></video>
+<canvas id="mycav" width="800" height="600"></canvas>
+<button onclick="takephoto()">Photo</button>
+
+<textarea id="tx"></textarea>
+
+<script>
+var constraints = { audio: true, video: { width: 1280, height: 720 } }; 
+
+var video = document.getElementById('my');
+
+var mds;
+
+navigator.mediaDevices.getUserMedia(constraints)
+.then(function(mediaStream) {
+  
+  video.srcObject = mediaStream;
+  mds = mediaStream
+  video.onloadedmetadata = function(e) {
+    video.play();
+  };
+})
+.catch(function(err) { console.log(err.name + ": " + err.message); }); // 总是在最后检查错误
+
+function takephoto()
+{
+  var canvas = document.getElementById('mycav');
+  var ctx = canvas.getContext('2d');
+  ctx.drawImage(video, 0, 0, 600, 300);
+}
+
+</script>
+</body>
+</html>
